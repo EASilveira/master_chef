@@ -16,6 +16,13 @@ const routes = [
     name: 'book',
     component: () => import('../views/BookView.vue'),
     meta: { title: 'Cook Book'}
+  },
+  {
+    path: '/recipe',
+    name: 'recipe',
+    component: () => import('../views/RecipeView.vue'),
+    meta: { title: 'Recipe'},
+    props: true
   }
 ]
 

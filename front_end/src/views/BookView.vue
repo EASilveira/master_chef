@@ -16,7 +16,7 @@
         <p></p>
         <input type="file" name="photo" @change="fileChanged">
       </div>
-      <button type="button" @click="upload">Save Recipe!</button>
+      <button @click="upload">Save Recipe!</button>
       <div class="upload" v-if="addRecipe">
         <h2>{{addRecipe.title}}</h2>
         <h2>{{addRecipe.author}}</h2>
@@ -45,29 +45,39 @@
         <img :src="findRecipe.path" />
       </div>
       <div class="actions" v-if="findRecipe">
-        <button @click="deleteItem(findRecipe)">Delete</button>
-        <button @click="editItem(findRecipe)">Edit</button>
+        <button @click="deleteRecipe(findRecipe)">Delete</button>
+        <button @click="editRecipe(findRecipe)">Edit</button>
       </div>
     </div>
 
     <br><hr><br>
+
+    <showRecipes :likes="this" />
+
   </div>
 </template>
 
 <script>
+import showRecipes from '@/components/showRecipes.vue'
 import axios from 'axios';
+
 export default {
   name: 'BookView',
+  components: {
+    showRecipes,
+  },
   data() {
     return {
       title: "",
       author: "",
       recipe: "",
+      liked: false,
       file: null,
       addRecipe: null,
       recipes: [],
       findTitle: "",
       findRecipe: null,
+      likes: true,
     }
   },
   computed: {
@@ -91,6 +101,7 @@ export default {
         let r2 = await axios.post('/api/recipes', {
           title: this.title,
           author: this.author,
+          liked: this.liked,
           recipe: this.recipe,
           path: r1.data.path
         });
@@ -112,7 +123,7 @@ export default {
       this.findTitle = "";
       this.findRecipe = recipe;
     },
-    async deleteItem(recipe) {
+    async deleteRecipe(recipe) {
       try {
         await axios.delete("/api/recipes/" + recipe._id);
         this.findRecipe = null;
@@ -122,11 +133,12 @@ export default {
         console.log(error);
       }
     },
-    async editRecipes(recipe) {
+    async editRecipe(recipe) {
       try {
         await axios.put("/api/recipes/" + recipe._id, {
           title: this.findRecipe.title,
           author: this.findRecipe.author,
+          liked: this.findRecipe.liked,
           recipe: this.findRecipe.recipe,
         });
         this.findRecipe = null;

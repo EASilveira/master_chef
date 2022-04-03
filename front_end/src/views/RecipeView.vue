@@ -1,50 +1,34 @@
 <template>
-  <div class="recipes">
-    <section class="recipe-gallery">
+  <div class="recipeThing">
+    <p>{{title}}</p>
+    <div class="image">
+    </div>
+    <div class="details">
+    </div>
+    <!-- <section class="recipe-gallery">
       <div v-if="likes">
         <div class="recipe-box" v-for="recipe in likedRecipes" :key="recipe.id">
-          <h2>{{printRecipe(recipe.title)}}</h2>
-          <!-- <router-link :to="{name: 'recipe', params: {recipe}}"><h2>{{printRecipe(recipe.title)}}</h2></router-link> -->
+          <h1>{{printRecipe(recipe.title)}}</h1>
           <p>By: {{recipe.author}}</p>
           <img :src="recipe.path" />
         </div>
       </div>
       <div v-else>
         <div class="recipe-box" v-for="recipe in suggestions" :key="recipe.id">
-          <h2>{{printRecipe(recipe.title)}}</h2>
-          <!-- <router-link :to="{name: 'recipe', params: {title} }"><h2>{{printRecipe(recipe.title)}}</h2></router-link> -->
+          <h1>{{printRecipe(recipe.title)}}</h1>
           <p>By: {{recipe.author}}</p>
           <img :src="recipe.path" />
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 export default {
-  name: 'showRecipes',
-  props: ["findTitle", "likes"],
-  data() {
-    return {
-     recipes: [],
-     title: "stupid"
-    }
-  },
-  computed: {
-    suggestions() {
-      let recipes = this.recipes.filter(recipe => recipe.title.toLowerCase().includes(this.findTitle.toLowerCase()));
-      return recipes.sort((a, b) => a.title > b.title);
-    },
-    likedRecipes() {
-      let recipes = this.recipes.filter(recipe => recipe.liked);
-      return recipes.sort((a, b) => a.title > b.title);
-    }
-  },
-  created() {
-    this.getRecipes();
-  },
+  name: 'RecipeDetails',
+  props: ["title"],
   methods: {
     async getRecipes() {
       try {
@@ -66,44 +50,22 @@ export default {
 }
 </script>
 
-
 <style scoped>
 
-a {
-  text-decoration: none;
-  color: #2c3e50;
+.recipeThing {
+  background-color: blue;
 }
 
-.recipe-box h1 {
-  font-style: italic;
+.image {
+  width: 200px;
+  height: 500px;
+  background-color: blue;
 }
 
-/* Masonry */
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-.recipe-gallery {
-  column-gap: 1.5em;
-  padding: 15px;
-}
-
-.recipe-box {
-  display: inline-block;
-  width: 100%;
-  background-color: #ffe99c;
-  border-radius: 15px;
-  margin-bottom: 25px;
-  height: 350px;
-}
-
-.recipe-box img {
-  width: 220px;
-  height: 220px;
-  border-radius: 5px;
-  object-fit: cover;
+.details {
+  background-color: green;
+  height: 500px;
+  min-width: 100px;
 }
 
 

@@ -26,6 +26,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/recipes', {
 const recipeSchema = new mongoose.Schema({
   title: String,
   author: String,
+  liked: Boolean,
   recipe: String,
   path: String,
 });
@@ -50,6 +51,7 @@ app.post('/api/recipes', async (req, res) => {
   const recipe = new Recipe({
     title: req.body.title,
     author: req.body.author,
+    liked: req.body.liked,
     recipe: req.body.recipe,
     path: req.body.path,
   });
@@ -94,6 +96,7 @@ app.put('/api/recipes/:id', async (req, res) => {
     });
     recipe.title = req.body.title;
     recipe.author = req.body.author;
+    recipe.liked = req.body.liked;
     recipe.recipe = req.body.recipe;
     await recipe.save()
     res.sendStatus(200);

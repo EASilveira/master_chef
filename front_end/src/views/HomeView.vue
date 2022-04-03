@@ -8,7 +8,7 @@
     <div class="search-box">
       <div class="search-icon"><font-awesome-icons icon="HatWizard"/></div>
       <form action="" class="search-form">
-        <input type="text" placeholder="Search" id="search" autocomplete="off">
+        <input type="text" v-model="title" placeholder="Find a recipe" id="search" autocomplete="off" @change="titleChanged">
       </form>
       <svg class="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" style="enable-background:new 0 0 671 111;"
        xml:space="preserve">
@@ -17,7 +17,7 @@
         </svg>
       <div class="go-icon"><i class="fa fa-arrow-right"></i></div>
     </div>
-    <showRecipes msg="Recipes!!!"/>
+    <showRecipes class="recipes-home" :findTitle="this.title"/>
   </div>
 </template>
 
@@ -29,7 +29,21 @@ import showRecipes from '@/components/showRecipes.vue'
 export default {
   name: 'HomeView',
   components: {
-    showRecipes
+    showRecipes,
+  },
+  data() {
+    return {
+      title: "",
+      likes: false,
+    }
+  },
+  methods: {
+      // emitEventChanged () {
+      //     this.$emit('CustomEventInputChanged', this.findTitle);
+      // }
+      titleChanged(title) {
+        this.findTitle = title;
+      }
   }
 }
 
@@ -39,6 +53,11 @@ export default {
 
 .home {
 
+}
+
+.recipes-home {
+  position: absolute;
+  top: 600px;
 }
 
 .header {
