@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:8080/ -->
+<html lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="http://localhost:8080/favicon.ico">
+  <title>Home</title>
+<script defer="" src="./Home_files/chunk-vendors.js"></script><script defer="" src="./Home_files/app.js"></script><style type="text/css">
+html {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  background: #fff;
+  padding: 0px;
+  margin: 0px;
+}
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Header */
+.appHeader {
+  position: sticky;
+  display: flex;
+  background-image: linear-gradient(to bottom, rgb(26, 24, 19, 1), rgb(26, 24, 19, .25));
+  top: 0px;
+  width: 100%;
+  height: 100px;
+  color: #1C454F;
+  -o-object-fit: fill;
+     object-fit: fill;
+  justify-content: flex-end;
+}
+.appHeader img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+nav {
+  padding: 35px;
+}
+nav a {
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+  margin-right: 15px;
+  text-decoration: none;
+}
+nav a:hover {
+  color: #ffab4a;
+}
+nav a.router-link-exact-active {
+  color: #ffab4a;
+  font-size: 25px;
+}
+
+</style><style type="text/css">
+.recipes[data-v-27580508] {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 300px;
+  width: 100%;
+}
+.search-box[data-v-27580508] {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  height: 60px;
+  border-radius: 120px;
+  margin: 0 auto;
+}
+.search-icon[data-v-27580508], .go-icon[data-v-27580508] {
+  position: absolute;
+  top: 0;
+  height: 60px;
+  width: 86px;
+  line-height: 61px;
+  text-align: center;
+}
+.search-icon[data-v-27580508] {
+  left: 0;
+  pointer-events: none;
+  font-size: 1.22em;
+  will-change: transform;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform-origin: center center;
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -o-transform-origin: center center;
+  transition: transform 400ms 220ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -webkit-transition: transform 400ms 220ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -moz-transition: transform 400ms 220ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -o-transition: transform 400ms 220ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+}
+.si-rotate[data-v-27580508] {
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+}
+.go-icon[data-v-27580508] {
+  right: 0;
+  pointer-events: none;
+  font-size: 1.38em;
+  will-change: opacity;
+  cursor: default;
+  opacity: 0;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transition: opacity 190ms ease-out, transform 260ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -webkit-transition: opacity 190ms ease-out, transform 260ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -moz-transition: opacity 190ms ease-out, transform 260ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -o-transition: opacity 190ms ease-out, transform 260ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+}
+.go-in[data-v-27580508] {
+  opacity: 1;
+  pointer-events: all;
+  cursor: pointer;
+  transform: rotate(0);
+  -webkit-transform: rotate(0);
+  -moz-transform: rotate(0);
+  -o-transform: rotate(0);
+  transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -webkit-transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -moz-transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -o-transition: opacity 190ms ease-out, transform 260ms 20ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+}
+.search-border[data-v-27580508] {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: 60px;
+}
+.border[data-v-27580508] {
+  fill: none;
+  stroke: #FFFFFF;
+  stroke-width: 5;
+  stroke-miterlimit: 10;
+}
+.border[data-v-27580508] {
+  stroke-dasharray: 740;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 400ms cubic-bezier(0.600, 0.040, 0.735, 0.990);
+  -webkit-transition: stroke-dashoffset 400ms cubic-bezier(0.600, 0.040, 0.735, 0.990);
+  -moz-transition: stroke-dashoffset 400ms cubic-bezier(0.600, 0.040, 0.735, 0.990);
+  -o-transition: stroke-dashoffset 400ms cubic-bezier(0.600, 0.040, 0.735, 0.990);
+}
+.border-searching .border[data-v-27580508] {
+  stroke-dasharray: 740;
+  stroke-dashoffset: 459;
+  transition: stroke-dashoffset 650ms cubic-bezier(0.755, 0.150, 0.205, 1.000);
+  -webkit-transition: stroke-dashoffset 650ms cubic-bezier(0.755, 0.150, 0.205, 1.000);
+  -moz-transition: stroke-dashoffset 650ms cubic-bezier(0.755, 0.150, 0.205, 1.000);
+  -o-transition: stroke-dashoffset 650ms cubic-bezier(0.755, 0.150, 0.205, 1.000);
+}
+#search[data-v-27580508] {
+  font-family: 'Montserrat Alternates', sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 120px;
+  border: none;
+  background: rgba(255,255,255,0);
+  padding: 0 68px 0 68px;
+  color: #FFFFFF;
+  font-size: 1.32em;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  outline: none;
+}
+#search[data-v-27580508]::-webkit-input-placeholder {color: #FFFFFF;}
+#search[data-v-27580508]::-moz-placeholder {color: #FFFFFF;}
+#search[data-v-27580508]:-ms-input-placeholder {color: #FFFFFF;}
+#search[data-v-27580508]:-moz-placeholder {color: #FFFFFF;}
+#search[data-v-27580508]::-moz-selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
+#search[data-v-27580508]::selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
+</style><style type="text/css">
+.home[data-v-9ea40744] {
+}
+.header[data-v-9ea40744] {
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  width: 100%;
+  height: 600px;
+}
+.header img[data-v-9ea40744] {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* Masonry */
+*[data-v-9ea40744],
+*[data-v-9ea40744]:before,
+*[data-v-9ea40744]:after {
+  box-sizing: inherit;
+}
+
+/* Masonry on large screens */
+@media only screen and (min-width: 1024px) {
+.image-gallery[data-v-9ea40744] {
+    -moz-column-count: 4;
+         column-count: 4;
+}
+}
+
+/* Masonry on medium-sized screens */
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+.image-gallery[data-v-9ea40744] {
+    -moz-column-count: 3;
+         column-count: 3;
+}
+}
+
+/* Masonry on small screens */
+@media only screen and (max-width: 767px) and (min-width: 540px) {
+.image-gallery[data-v-9ea40744] {
+    -moz-column-count: 2;
+         column-count: 2;
+}
+}
+
+</style></head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but front_end doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"><div class="appHeader"><nav><a href="http://localhost:8080/" aria-current="page" class="router-link-exact-active router-link-active">Home</a><a href="http://localhost:8080/about" class="">About</a></nav></div><div class="content"><div data-v-9ea40744="" class="home"><div data-v-9ea40744="" class="header"><img data-v-9ea40744="" src="./Home_files/cuttingBoardBG.ca5a9117.jpeg" alt=""></div><div data-v-27580508="" data-v-9ea40744="" class="recipes"><div data-v-27580508="" class="search-box"><div data-v-27580508="" class="search-icon"><font-awesome-icons data-v-27580508="" icon="HatWizard"></font-awesome-icons></div><form data-v-27580508="" action="http://localhost:8080/" class="search-form"><input data-v-27580508="" type="text" placeholder="Search" id="search" autocomplete="off"></form><svg data-v-27580508="" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" xml:space="preserve" class="search-border"><path data-v-27580508="" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280" class="border"></path><path data-v-27580508="" d="M335.5,108.5h280c29.3,0,53-23.7,53-53v0c0-29.3-23.7-53-53-53h-280" class="border"></path></svg><div data-v-27580508="" class="go-icon"><i data-v-27580508="" class="fa fa-arrow-right"></i></div></div></div><h1 data-v-9ea40744=""><font-awesome-icon data-v-9ea40744="" icon="”hat-wizard”"></font-awesome-icon></h1></div></div></div>
+  <!-- built files will be auto injected -->
+
+
+</body></html>

@@ -8,15 +8,14 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    meta: { title: 'Home'}
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/book',
+    name: 'book',
+    component: () => import('../views/BookView.vue'),
+    meta: { title: 'Cook Book'}
   }
 ]
 
@@ -25,5 +24,14 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+const DEFAULT_TITLE = 'Master Chef';
+router.afterEach((to) => {
+    // Use next tick to handle router history correctly
+    // see: https://github.com/vuejs/vue-router/issues/914#issuecomment-384477609
+    Vue.nextTick(() => {
+        document.title = to.meta.title || DEFAULT_TITLE;
+    });
+});
 
 export default router
